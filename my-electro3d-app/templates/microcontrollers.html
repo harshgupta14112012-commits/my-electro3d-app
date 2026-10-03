@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microcontrollers - Electro3D 🧠</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">⚡ Electro3D</div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/microcontrollers">Microcontrollers</a>
+            <a href="/switches">Switches & Relays</a>
+            <a href="/circuits">Interactive Circuits</a>
+        </nav>
+    </header>
+
+    <div class="page-container">
+        <h1>Microcontrollers & Embedded Processors 🧠</h1>
+        
+        <p class="section-paragraph">
+            Microcontrollers serve as the central brain of modern embedded electronic systems. Unlike general-purpose desktop processors that rely on external RAM modules, graphics processing units, and persistent storage drives, microcontrollers integrate the processing core, random-access memory (SRAM), program Flash memory, and input/output peripherals directly onto a single silicon chip. This monolithic integration minimizes board footprint, reduces energy consumption, and provides microsecond-level deterministic hardware timing necessary for real-time control applications.
+        </p>
+
+        <p class="section-paragraph">
+            When selecting a microcontroller for hardware development, engineers evaluate processing architecture, clock frequencies, memory capacities, operating voltages, and peripheral pinouts. 8-bit AVR boards like the Arduino Uno excel in basic digital sensor reading and beginner robotics, while 32-bit ARM Cortex and Xtensa dual-core chips (such as the ESP32 and STM32) provide high-speed computing, hardware encryption, floating-point units, and native Wi-Fi/Bluetooth stacks for modern Internet-of-Things (IoT) deployments.
+        </p>
+
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1608564697071-ddf911d81370?auto=format&fit=crop&w=600&q=80" alt="Arduino Uno">
+                <h3>Arduino Uno R3</h3>
+                <p>Powered by the ATmega328P 8-bit AVR microcontroller operating at 16MHz. Features 14 digital I/O pins (6 PWM enabled), 6 analog input channels, and standard DIP socket placement.</p>
+                <div class="specs">⚡ 5V DC Operating | 16MHz Clock | 32KB Flash Memory</div>
+                <a href="https://docs.arduino.cc/resources/datasheets/A000066-datasheet.pdf" target="_blank" class="card-btn">Official Datasheet 📄</a>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" alt="Raspberry Pi 4">
+                <h3>Raspberry Pi 4 Model B</h3>
+                <p>High-throughput single-board computer powered by a Quad-core ARM Cortex-A72 64-bit SoC @ 1.5GHz. Capable of running full Linux desktop environments and gigabit networking.</p>
+                <div class="specs">🧠 64-bit Quad-Core | 8GB LPDDR4 | Dual 4K HDMI Output</div>
+                <a href="https://datasheets.raspberrypi.com/rpi4/raspberry-pi-4-datasheet.pdf" target="_blank" class="card-btn">Official Datasheet 📄</a>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80" alt="ESP32 Development Board">
+                <h3>ESP32-WROOM-32</h3>
+                <p>Low-power Wi-Fi and Bluetooth BLE system-on-chip equipped with a Tensilica Xtensa 32-bit LX6 dual-core processor running up to 240 MHz with capacitive touch sensors.</p>
+                <div class="specs">📡 Dual Wi-Fi + BLE | 240MHz Clock | Hall Sensor + Touch</div>
+                <a href="https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32_datasheet_en.pdf" target="_blank" class="card-btn">Official Datasheet 📄</a>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=600&q=80" alt="STM32 Nucleo Board">
+                <h3>STM32F103C8T6 (Blue Pill)</h3>
+                <p>Industry-standard 32-bit ARM Cortex-M3 core operating at 72 MHz. Integrates hardware DMA controllers, nested vector interrupt controllers, and low-power standby modes.</p>
+                <div class="specs">🚀 ARM Cortex-M3 | 72MHz | 64KB Flash | CAN bus Support</div>
+                <a href="https://www.st.com/resource/en/datasheet/stm32f103c8.pdf" target="_blank" class="card-btn">Official Datasheet 📄</a>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80" alt="Raspberry Pi Pico">
+                <h3>Raspberry Pi Pico (RP2040)</h3>
+                <p>Custom RP2040 silicon featuring dual ARM Cortex-M0+ cores @ 133MHz and 8 state machines dedicated for custom Programmable I/O (PIO) execution without CPU overhead.</p>
+                <div class="specs">⚡ Dual ARM M0+ | 264KB SRAM | 8x Programmable I/O</div>
+                <a href="https://datasheets.raspberrypi.com/pico/pico-datasheet.pdf" target="_blank" class="card-btn">Official Datasheet 📄</a>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Arduino Mega 2560">
+                <h3>Arduino Mega 2560 R3</h3>
+                <p>Designed for large-scale automation projects requiring extensive GPIO routing. Powered by the ATmega2560 featuring 54 digital pins, 16 analog inputs, and 4 UART serial ports.</p>
+                <div class="specs">🔌 54 GPIO Pins | 256KB Flash | 4 Hardware UART Ports</div>
+                <a href="https://docs.arduino.cc/resources/datasheets/A000067-datasheet.pdf" target="_blank" class="card-btn">Official Datasheet 📄</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

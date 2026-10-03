@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switches & Relays - Electro3D 🔌</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">⚡ Electro3D</div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/microcontrollers">Microcontrollers</a>
+            <a href="/switches">Switches & Relays</a>
+            <a href="/circuits">Interactive Circuits</a>
+        </nav>
+    </header>
+
+    <div class="page-container">
+        <h1>Switches, Relays & Power Isolation Modules 🔌</h1>
+
+        <p class="section-paragraph">
+            Switches and relays form the critical interface between low-power decision logic (microcontrollers operating at 3.3V or 5V DC) and high-power physical loads (such as industrial motors, solenoid valves, and 230V AC household appliances). Physical switches provide manual digital state inputs, while relays and solid-state modules allow low-voltage digital signals to safely switch high-current electric circuits without damaging sensitive logic chips.
+        </p>
+
+        <p class="section-paragraph">
+            Understanding the distinction between mechanical switching devices and semiconductor power controllers is essential for reliable circuit design. Electromechanical relays utilize internal electromagnetic coils to physically pull contacts together, offering complete physical isolation but experiencing contact arcing and mechanical wear over time. In contrast, Solid-State Relays (SSR) and MOSFET modules leverage semiconductor physics (such as Optocouplers and TRIACs) to achieve completely silent, high-frequency switching with zero moving parts.
+        </p>
+
+        <div class="grid">
+            <!-- Fixed Tactile Push Button Switch Image -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80" alt="Tactile Push Button Switch">
+                <h3>Tactile Push Button Switches</h3>
+                <p>Momentary Single Pole Single Throw (SPST) switches. Pressing the tactile cap bridges internal metallic domes to send instant digital HIGH/LOW state triggers to microcontroller input pins.</p>
+                <div class="specs">🔘 12V DC / 50mA Rating | Momentary Type | 100,000 Cycle Life</div>
+                <a href="https://www.omron.com/ecb/products/pdf/en-b3f.pdf" target="_blank" class="card-btn">Official Datasheet 📄</a>
+            </div>
+
+            <!-- Fixed 5V Relay Module Image -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80" alt="5V Optocoupler Relay Module">
+                <h3>5V Optocoupler Relay Module</h3>
+                <p>Electromechanical relay module with integrated PC817 optocoupler IC. Provides physical optical light-barrier isolation to shield microcontroller I/O pins from high-voltage AC back-EMF spikes.</p>
+                <div class="specs">⚡ Load: 250V AC / 10A | Opto-isolated | Active LOW/HIGH Trigger</div>
+                <a href="https://components101.com/asset/users/user-1/5V-Relay-Module-Datasheet.pdf" target="_blank" class="card-btn">Official Datasheet 📄</a>
+            </div>
+
+            <!-- Fixed Solid State Relay Image -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&w=600&q=80" alt="Solid State Relay">
+                <h3>Solid State Relay (SSR-40DA)</h3>
+                <p>Semiconductor switching device utilizing internal zero-cross firing logic and TRIAC output. Operates without mechanical contacts, eliminating physical wear, arcing, and acoustic click noise.</p>
+                <div class="specs">🔥 Output: 24-380V AC / 40A | Control Input: 3-32V DC | Zero Noise</div>
+                <a href="https://www.fotek.com.tw/pdf/2013711_8884393.pdf" target="_blank" class="card-btn">Official Datasheet 📄</a>
+            </div>
+
+            <!-- MOSFET Module -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" alt="MOSFET Switch Module">
+                <h3>IRF520 Power MOSFET Module</h3>
+                <p>N-Channel power MOSFET capable of high-frequency PWM switching for DC motors, high-intensity LED strings, and heating elements with extremely low internal resistance.</p>
+                <div class="specs">⚡ Switching: 0-24V DC / 5A | PWM Compatible | Low RDS(on) Resistance</div>
+                <a href="https://www.vishay.com/docs/91017/91017.pdf" target="_blank" class="card-btn">Official Datasheet 📄</a>
+            </div>
+
+            <!-- DIP Switch -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="DIP Switches">
+                <h3>DIP Switch Arrays</h3>
+                <p>Manual rotary or linear DIP switch arrays mounted in dual in-line pin packages. Used for configuring device sub-addresses, system parameters, and hardware modes directly on PCBs.</p>
+                <div class="specs">🎛️ 4/8-Position Array | Gold Plated Contacts | 24V DC 25mA Rating</div>
+                <a href="https://www.cts-corp.com/wp-content/uploads/206.pdf" target="_blank" class="card-btn">Official Datasheet 📄</a>
+            </div>
+
+            <!-- Sonar Sensor -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80" alt="HC-SR04 Sensor">
+                <h3>HC-SR04 Ultrasonic Ranging Sensor</h3>
+                <p>Non-contact ultrasonic sonar distance measurement module operating at 40 kHz. Provides accurate distance measurements based on sonic pulse flight time-of-reflection.</p>
+                <div class="specs">📏 Range: 2cm – 400cm | 15° Detection Angle | 5V DC Power Supply</div>
+                <a href="https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf" target="_blank" class="card-btn">Official Datasheet 📄</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Circuits & Simulation - Electro3D ⚡</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">⚡ Electro3D</div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/microcontrollers">Microcontrollers</a>
+            <a href="/switches">Switches & Relays</a>
+            <a href="/circuits">Interactive Circuits</a>
+        </nav>
+    </header>
+
+    <div class="page-container">
+        <h1>Interactive Circuit Simulations & Schematics ⚡</h1>
+        <p class="section-paragraph">
+            Interact with real-world electronic circuits in real-time. Toggle switches, adjust sliders, and trigger sensor interrupts below to simulate live signal propagation and voltage responses.
+        </p>
+
+        <div class="circuit-list">
+
+            <!-- Circuit 1: Relay -->
+            <div class="circuit-card">
+                <div class="circuit-header">
+                    <h2>01. 5V Optocoupler Relay Controller 💡</h2>
+                    <span class="tag high">Interactive Live Relay</span>
+                </div>
+                <p>Controls a high-voltage 230V AC lamp via an optocoupler isolation gate driven by digital pin D8.</p>
+                
+                <div class="circuit-diagram">
+┌─────────────────┐       ┌─────────────────┐      ┌─────────────┐     ┌──────────────┐
+│ Arduino Uno R3  │       │ 5V Relay Module │      │ AC Mains    │     │ Light Bulb / │
+│ Digital Pin D8 ─┼──────►│ IN Pin          │      │ Live (L) ───┼────►│ Load         │
+│ 5V Pin ─────────┼──────►│ VCC (+5V)       │      │             │     │              │
+│ GND Pin ────────┼──────►│ GND             │      │ Neutral ────┼────►│ Neutral Return│
+└─────────────────┘       │ COM ────────────┼──────┘             │     └──────────────┘
+                          │ NO (Normally) ──┼────────────────────┘
+                          └─────────────────┘
+                </div>
+
+                <div class="sim-panel">
+                    <h3>🕹️ Live Circuit Interactive Control:</h3>
+                    <div class="control-group">
+                        <label>Toggle Arduino Pin D8 Output:</label>
+                        <button id="relay-btn" class="sim-btn" onclick="toggleRelay()">Toggle Switch ON/OFF</button>
+                    </div>
+                    <div class="sim-output" id="relay-output">
+                        ⚡ State: OFF 🔌 | Voltage: 0V AC (Isolated) | Load: Light Bulb OFF
+                    </div>
+                </div>
+            </div>
+
+            <!-- Circuit 2: SSR -->
+            <div class="circuit-card">
+                <div class="circuit-header">
+                    <h2>02. Solid State Relay (SSR) AC TRIAC Dimmer 🔌</h2>
+                    <span class="tag high">Interactive SSR Simulation</span>
+                </div>
+                <p>Controls high-power AC output without mechanical contacts using zero-cross semiconductor firing logic.</p>
+                
+                <div class="circuit-diagram">
+┌─────────────────┐        ┌──────────────────┐       ┌─────────────┐
+│ Microcontroller │        │ Solid State Relay│       │ AC Load     │
+│ Pin D9 (3-32V) ─┼───────►│ Control Input (+)│       │ High Voltage│
+│ GND Pin ────────┼───────►│ Control Input (-)│       │ Output      │
+└─────────────────┘        │ Load Output A ───┼──────►│ Live Line   │
+                           │ Load Output B ───┼──────►│ Appliance   │
+                           └──────────────────┘       └─────────────┘
+                </div>
+
+                <div class="sim-panel">
+                    <h3>🕹️ Live Circuit Interactive Control:</h3>
+                    <div class="control-group">
+                        <label>Adjust Power Firing Level (%):</label>
+                        <input type="range" id="ssr-slider" min="0" max="100" value="0" oninput="updateSSR(this.value)">
+                        <span id="ssr-val" class="sim-val">0%</span>
+                    </div>
+                    <div class="sim-output" id="ssr-output">
+                        🔥 TRIAC State: IDLE / OFF 💤 | SSR Control Input LOW. Load OFF.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Circuit 3: Sonar -->
+            <div class="circuit-card">
+                <div class="circuit-header">
+                    <h2>03. HC-SR04 Sonar Distance Sensor 📏</h2>
+                    <span class="tag med">Interactive Sonar Distance</span>
+                </div>
+                <p>Calculates obstacle distance using high-frequency 40 kHz ultrasound echo reflection time-of-flight.</p>
+
+                <div class="circuit-diagram">
+[ Arduino D9 Trigger ] ───► ( Trig Pin ) ┌────────────────┐ ──► [ Sonic Transmit ]
+[ Arduino D10 Echo ]   ◄─── ( Echo Pin ) │ HC-SR04 Sensor │ ◄── [ Sonic Reflection ]
+[ Arduino 5V / GND ]   ───► ( VCC / GND )└────────────────┘
+                </div>
+
+                <div class="sim-panel">
+                    <h3>🕹️️ Live Circuit Interactive Control:</h3>
+                    <div class="control-group">
+                        <label>Move Obstacle Distance (cm):</label>
+                        <input type="range" id="sonar-slider" min="2" max="200" value="100" oninput="updateSonar(this.value)">
+                        <span id="sonar-val" class="sim-val">100 cm</span>
+                    </div>
+                    <div class="sim-output" id="sonar-output">
+                        📏 Flight Time: 5880 µs | Distance: 100 cm | Clear path ahead.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Circuit 4: PIR -->
+            <div class="circuit-card">
+                <div class="circuit-header">
+                    <h2>04. PIR Motion Detector & Alarm 🚨</h2>
+                    <span class="tag med">Interactive Motion Sensor</span>
+                </div>
+                <p>Monitors ambient infrared signatures to detect physical movement across security zones.</p>
+
+                <div class="circuit-diagram">
+[ PIR OUT Pin ] ──► [ Arduino D2 Interrupt ] ──► [ Pin D13 LED / Siren Alarm ]
+                </div>
+
+                <div class="sim-panel">
+                    <h3>🕹️ Live Circuit Interactive Control:</h3>
+                    <div class="control-group">
+                        <label>Simulate Human Movement in Zone:</label>
+                        <button id="pir-btn" class="sim-btn" onclick="triggerPIR()">Trigger Motion Event</button>
+                    </div>
+                    <div class="sim-output" id="pir-output">
+                        👁️ Infrared Zone: Quiet | Alarm LED: OFF
+                    </div>
+                </div>
+            </div>
+
+            <!-- Circuit 5: MOSFET PWM -->
+            <div class="circuit-card">
+                <div class="circuit-header">
+                    <h2>05. MOSFET PWM DC Motor Speed Controller ⚙</h2>
+                    <span class="tag med">Interactive PWM Speed</span>
+                </div>
+                <p>Controls high-current DC motor RPM using N-Channel IRF520 pulse-width modulation signals.</p>
+
+                <div class="circuit-diagram">
+[ Arduino Pin D3 (PWM) ] ──► [ IRF520 Gate ] ──► [ Drain to Motor (-) ] ──► [ 12V Supply ]
+                </div>
+
+                <div class="sim-panel">
+                    <h3>🕹️ Live Circuit Interactive Control:</h3>
+                    <div class="control-group">
+                        <label>Adjust PWM Duty Cycle (0 - 255):</label>
+                        <input type="range" id="mosfet-slider" min="0" max="255" value="0" oninput="updateMOSFET(this.value)">
+                        <span id="mosfet-val" class="sim-val">0 / 255</span>
+                    </div>
+                    <div class="sim-output" id="mosfet-output">
+                        ⚙️ Duty Cycle: 0% | Motor Speed: 0 RPM | MOSFET Gate OFF. Motor stopped.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Circuit 6: Servo -->
+            <div class="circuit-card">
+                <div class="circuit-header">
+                    <h2>06. SG90 Micro Servo Angle Controller 🦾</h2>
+                    <span class="tag low">Interactive Servo Arm</span>
+                </div>
+                <p>Positions robotic joint arms to precise angular positions (0° to 180°) using PWM pulse trains.</p>
+
+                <div class="circuit-diagram">
+[ Arduino Pin D9 (PWM) ] ──► [ Servo Signal Pin ] ──► [ Servo Internal Gearbox ]
+                </div>
+
+                <div class="sim-panel">
+                    <h3>🕹️ Live Circuit Interactive Control:</h3>
+                    <div class="control-group">
+                        <label>Set Servo Angle (0° - 180°):</label>
+                        <input type="range" id="servo-slider" min="0" max="180" value="90" oninput="updateServo(this.value)">
+                        <span id="servo-val" class="sim-val">90°</span>
+                    </div>
+                    <div class="sim-output" id="servo-output">
+                        🦾 Angle: 90° | Pulse Width: 1500 µs | Servo horn rotated to 90 degrees position.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Circuit 7: LDR Light Sensor -->
+            <div class="circuit-card">
+                <div class="circuit-header">
+                    <h2>07. Light Dependent Resistor (LDR) Night Light Controller 🌙</h2>
+                    <span class="tag low">Interactive Light Sensor</span>
+                </div>
+                <p>Reads ambient light intensity to automatically energize street light relays during night conditions.</p>
+
+                <div class="circuit-diagram">
+[ +5V ] ──► [ LDR Photoresistor ] ──► [ Analog A0 Node ] ──► [ 10k Resistor ] ──► [ GND ]
+                </div>
+
+                <div class="sim-panel">
+                    <h3>🕹️ Live Circuit Interactive Control:</h3>
+                    <div class="control-group">
+                        <label>Simulate Sunlight Level (Lux):</label>
+                        <input type="range" id="ldr-slider" min="0" max="1000" value="800" oninput="updateLDR(this.value)">
+                        <span id="ldr-val" class="sim-val">800 Lux (Daylight)</span>
+                    </div>
+                    <div class="sim-output" id="ldr-output">
+                        🌙 State: DAYLIGHT ☀️ | Daylight sufficient. Street light turned OFF.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Live Simulation JavaScript Logic -->
+    <script>
+        // Helper function for API calls
+        function postSimulation(circuitId, payload, callback) {
+            payload.circuit_id = circuitId;
+            fetch('/api/simulate-circuit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            })
+            .then(res => res.json())
+            .then(data => callback(data))
+            .catch(err => console.error("Simulation error for " + circuitId + ":", err));
+        }
+
+        // 1. Relay Toggle
+        let relayState = false;
+        function toggleRelay() {
+            relayState = !relayState;
+            postSimulation('relay', { state: relayState }, function(data) {
+                document.getElementById('relay-output').innerHTML = 
+                    `⚡ State: <b>${data.status}</b> | Voltage: <b>${data.voltage_ac}</b> | ${data.output_msg}`;
+            });
+        }
+
+        // 2. SSR Control
+        function updateSSR(val) {
+            document.getElementById('ssr-val').innerText = val + '%';
+            postSimulation('ssr', { value: val }, function(data) {
+                document.getElementById('ssr-output').innerHTML = 
+                    `🔥 State: <b>${data.triac_state}</b> | ${data.output_msg}`;
+            });
+        }
+
+        // 3. Sonar Distance Control
+        function updateSonar(val) {
+            document.getElementById('sonar-val').innerText = val + ' cm';
+            postSimulation('sonar', { value: val }, function(data) {
+                document.getElementById('sonar-output').innerHTML = 
+                    `📏 Flight: <b>${data.flight_time_us}</b> | Distance: <b>${data.distance_cm} cm</b> | ${data.output_msg}`;
+            });
+        }
+
+        // 4. PIR Motion Interrupt
+        function triggerPIR() {
+            postSimulation('pir', { state: true }, function(data) {
+                document.getElementById('pir-output').innerHTML = 
+                    `🚨 State: <b>${data.status}</b> | ${data.output_msg}`;
+                
+                setTimeout(() => {
+                    document.getElementById('pir-output').innerHTML = "👁️ Infrared Zone: Quiet | Alarm LED: OFF";
+                }, 3500);
+            });
+        }
+
+        // 5. MOSFET PWM Speed Control
+        function updateMOSFET(val) {
+            document.getElementById('mosfet-val').innerText = val + ' / 255';
+            postSimulation('mosfet', { value: val }, function(data) {
+                document.getElementById('mosfet-output').innerHTML = 
+                    `⚙️ Duty Cycle: <b>${data.duty_cycle}</b> | Speed: <b>${data.motor_rpm}</b> | ${data.output_msg}`;
+            });
+        }
+
+        // 6. Servo Angle Control
+        function updateServo(val) {
+            document.getElementById('servo-val').innerText = val + '°';
+            postSimulation('servo', { value: val }, function(data) {
+                document.getElementById('servo-output').innerHTML = 
+                    `🦾 Position: <b>${data.angle}</b> | Pulse: <b>${data.pulse_width}</b> | ${data.output_msg}`;
+            });
+        }
+
+        // 7. LDR Sensor Control
+        function updateLDR(val) {
+            const isDark = val < 300;
+            document.getElementById('ldr-val').innerText = val + ' Lux (' + (isDark ? 'Night' : 'Daylight') + ')';
+            postSimulation('ldr', { value: val }, function(data) {
+                document.getElementById('ldr-output').innerHTML = 
+                    `🌙 Mode: <b>${data.light_state}</b> | ${data.output_msg}`;
+            });
+        }
+    </script>
+</body>
+</html>

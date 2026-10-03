@@ -1,0 +1,360 @@
+/* Dark Modern Cyberpunk Theme */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: #0b0f19;
+    color: #e2e8f0;
+    overflow-x: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 50px;
+    background: rgba(17, 24, 39, 0.85);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #1f2937;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #38bdf8;
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+}
+
+nav a {
+    color: #9ca3af;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 15px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #38bdf8;
+}
+
+.hero-3d {
+    display: flex;
+    align-items: center;
+    height: calc(100vh - 70px);
+    padding: 0 50px;
+}
+
+.hero-text {
+    flex: 1;
+    max-width: 500px;
+}
+
+.hero-text h1 {
+    font-size: 40px;
+    color: #38bdf8;
+    text-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+    line-height: 1.2;
+}
+
+.hero-text p {
+    color: #94a3b8;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+#canvas-container {
+    flex: 1.5;
+    height: 80%;
+    cursor: grab;
+}
+
+#canvas-container:active {
+    cursor: grabbing;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #0284c7, #38bdf8);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    margin-right: 10px;
+    margin-top: 20px;
+    font-weight: bold;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.6);
+}
+
+.btn.secondary {
+    background: #374151;
+}
+
+.page-container {
+    padding: 40px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.intro-p {
+    font-size: 16px;
+    color: #94a3b8;
+    line-height: 1.7;
+    max-width: 900px;
+    margin-bottom: 30px;
+}
+
+/* Info Section Styling */
+.info-section {
+    background: #111827;
+    padding: 40px 0;
+    border-top: 1px solid #1f2937;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.info-box {
+    background: #1e293b;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #334155;
+}
+
+.info-box h3 {
+    color: #38bdf8;
+    margin-top: 0;
+}
+
+.info-box p {
+    color: #94a3b8;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+/* Cards Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #334155;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(56, 189, 248, 0.25);
+    border-color: #38bdf8;
+}
+
+.card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.specs {
+    font-size: 12px;
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.1);
+    padding: 8px;
+    border-radius: 6px;
+    margin: 10px 0;
+    font-weight: 600;
+}
+
+.card-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #0284c7;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    border-radius: 6px;
+    text-align: center;
+    transition: background 0.2s;
+}
+
+.card-btn:hover {
+    background: #38bdf8;
+}
+
+/* Circuit Project Styling */
+.circuit-list {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.circuit-card {
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 30px;
+    border: 1px solid #334155;
+}
+
+.circuit-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.circuit-header h2 {
+    margin: 0;
+    color: #38bdf8;
+    font-size: 22px;
+}
+
+.tag {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.tag.high { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+.tag.med { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+.tag.low { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+
+.circuit-diagram {
+    background: #090d16;
+    color: #38bdf8;
+    padding: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 8px;
+    white-space: pre;
+    overflow-x: auto;
+    border: 1px solid #1e293b;
+    margin: 15px 0;
+    font-size: 13px;
+}
+
+.circuit-info {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.info-block {
+    flex: 1;
+    min-width: 280px;
+}
+
+.info-block h4 {
+    color: #e2e8f0;
+    margin-bottom: 10px;
+}
+
+.info-block ul {
+    padding-left: 20px;
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+pre {
+    background: #090d16;
+    padding: 15px;
+    border-radius: 8px;
+    color: #a7f3d0;
+    font-size: 13px;
+    overflow-x: auto;
+    margin: 0;
+    border: 1px solid #1e293b;
+} /* Interactive Simulation Panel Styling */
+.sim-panel {
+    background: #0d1527;
+    border: 1px solid #0284c7;
+    border-radius: 8px;
+    padding: 18px;
+    margin: 15px 0 20px 0;
+}
+
+.sim-panel h3 {
+    margin-top: 0;
+    color: #38bdf8;
+    font-size: 15px;
+}
+
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.control-group label {
+    font-size: 14px;
+    color: #e2e8f0;
+    font-weight: 600;
+}
+
+.sim-btn {
+    background: linear-gradient(135deg, #0284c7, #38bdf8);
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 13px;
+    transition: transform 0.1s, box-shadow 0.2s;
+}
+
+.sim-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.5);
+}
+
+.sim-btn:active {
+    transform: scale(0.97);
+}
+
+input[type=range] {
+    accent-color: #38bdf8;
+    cursor: pointer;
+    width: 200px;
+}
+
+.sim-val {
+    color: #38bdf8;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.sim-output {
+    background: #040711;
+    border: 1px solid #1e293b;
+    padding: 12px;
+    border-radius: 6px;
+    color: #34d399;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13.5px;
+}
+
+.section-paragraph {
+    font-size: 15.5px;
+    color: #94a3b8;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}

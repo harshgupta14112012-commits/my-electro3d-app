@@ -1,6 +1,11 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, send_from_directory
 
 app = Flask(__name__)
+
+# Direct route to serve the Google Verification HTML file
+@app.route("/google7aa978d49123db61.html")
+def google_verify():
+    return send_from_directory("templates", "google7aa978d49123db61.html")
 
 @app.route("/")
 def home():

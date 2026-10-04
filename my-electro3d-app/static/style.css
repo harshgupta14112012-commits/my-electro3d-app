@@ -358,3 +358,23 @@ input[type=range] {
     line-height: 1.8;
     margin-bottom: 20px;
 }
+/* Footer Styling */
+footer {
+    display: block !important;
+    width: 100%;
+    background-color: #0f172a !important;
+    border-top: 1px solid #1f2937 !important;
+    padding: 30px 20px !important;
+    text-align: center !important;
+    margin-top: 60px !important;
+    position: relative !important;
+    z-index: 1000 !important;
+    box-sizing: border-box;
+}
+
+footer p {
+    color: #94a3b8 !important;
+    font-size: 14px !important;
+    margin: 0 !important;
+    letter-spacing: 0.5px;
+}

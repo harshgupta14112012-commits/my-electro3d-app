@@ -144,11 +144,10 @@
     </script>
 
     <!-- Fixed High-Visibility Beta Footer -->
-    <footer style="text-align: center; padding: 25px 15px; font-size: 0.95rem; color: #ffffff; background-color: #0f172a; border-top: 1px solid #334155; margin-top: 50px; position: relative; z-index: 9999;">
-        <p style="margin: 0; font-family: sans-serif; letter-spacing: 0.5px;">
-            This website is in beta version | Made by Harsh Gupta | Release date: 3/10/2026 🚀
-        </p>
-    </footer>
-
+    <footer>
+    <p>This website is in beta version | Made by Harsh Gupta | Release date: 3/10/2026 🚀</p>
+</footer>
+</body>
+</html>
 </body>
 </html>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta name="google-site-verification" content="-ZDf0eQ461eNVrIZ__wPyEpLG-14S-go4uBBcSDjv8I" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3D Electronics Hub ⚡</title>
@@ -141,5 +142,8 @@
             camera.updateProjectionMatrix();
         });
     </script>
+<footer style="text-align: center; padding: 20px; font-size: 0.9rem; color: #888; border-top: 1px solid #333; margin-top: 40px;">
+    <p>This website is in beta version | Made by Harsh Gupta | Release date: 3/10/2026</p>
+</footer>
 </body>
 </html>
